@@ -1,9 +1,9 @@
-## aframe-part-center-component
+## aframe-gltf-helpers
 
-[![Version](http://img.shields.io/npm/v/aframe-part-center-component.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
-[![License](http://img.shields.io/npm/l/aframe-part-center-component.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
+[![Version](http://img.shields.io/npm/v/aframe-gltf-helpers.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
+[![License](http://img.shields.io/npm/l/aframe-gltf-helpers.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
 
-A A-Frame glTF Helper Components component for A-Frame.
+A-Frame glTF Helper Components
 
 For [A-Frame](https://aframe.io).
 
