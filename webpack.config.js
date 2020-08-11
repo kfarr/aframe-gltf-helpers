@@ -10,7 +10,7 @@ module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   output: {
     globalObject: 'this',
-    path: path.resolve(__dirname, '../dist'),
+    path: __dirname + '/dist', // eslint-disable-line no-path-concat
     filename: process.env.NODE_ENV === 'production' ? 'aframe-gltf-helpers.min.js' : 'aframe-gltf-helpers.js',
     libraryTarget: 'umd'
   },
