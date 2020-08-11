@@ -4,55 +4,116 @@ if (typeof AFRAME === 'undefined') {
   throw new Error('Component attempted to register before AFRAME was available.');
 }
 
-/**
- * A-Frame glTF Helper Components component for A-Frame.
- */
-AFRAME.registerComponent('part-center', {
-  schema: {},
+var LOADING_MODELS = {};
+var MODELS = {};
+
+AFRAME.registerComponent('gltf-part-reset-from-so', {
+  schema: {
+    buffer: { default: true },
+    part: { type: 'string' },
+    src: { type: 'asset' },
+    resetPosition: { default: false },
+    originalPosition: { default: '0 0 0' }
+  },
+
+  init: function () {
+    this.dracoLoader = document
+      .querySelector('a-scene')
+      .systems['gltf-model'].getDRACOLoader();
+  },
+
+  update: function () {
+    var el = this.el;
+    var data = this.data;
+    if (!this.data.part && this.data.src) {
+      return;
+    }
+    this.getModel(function (modelPart) {
+      if (!modelPart) {
+        return;
+      }
+      console.log(data.resetPosition);
+      if (data.resetPosition) {
+        el.setAttribute(
+          'originalPosition',
+          modelPart.position.x +
+            ' ' +
+            modelPart.position.y +
+            ' ' +
+            modelPart.position.z
+        );
+
+        modelPart.position.set(0, 0, 0);
+      }
+
+      el.setObject3D('mesh', modelPart);
+      el.setAttribute('position', el.getAttribute('originalPosition'));
+      // el.emit('part-loaded', {format: 'gltf', part: self.modelPart});
+    });
+  },
 
   /**
-   * Set if component needs multiple instancing.
+   * Fetch, cache, and select from GLTF.
+   *
+   * @returns {object} Selected subset of model.
    */
-  multiple: false,
+  getModel: function (cb) {
+    var self = this;
+
+    // Already parsed, grab it.
+    if (MODELS[this.data.src]) {
+      cb(this.selectFromModel(MODELS[this.data.src]));
+      return;
+    }
+
+    // Currently loading, wait for it.
+    if (LOADING_MODELS[this.data.src]) {
+      return LOADING_MODELS[this.data.src].then(function (model) {
+        cb(self.selectFromModel(model));
+      });
+    }
+
+    // Not yet fetching, fetch it.
+    LOADING_MODELS[this.data.src] = new Promise(function (resolve) {
+      var loader = new THREE.GLTFLoader();
+      if (self.dracoLoader) {
+        loader.setDRACOLoader(self.dracoLoader);
+      }
+      loader.load(
+        self.data.src,
+        function (gltfModel) {
+          var model = gltfModel.scene || gltfModel.scenes[0];
+          MODELS[self.data.src] = model;
+          delete LOADING_MODELS[self.data.src];
+          cb(self.selectFromModel(model));
+          resolve(model);
+        },
+        function () {},
+        console.error
+      );
+    });
+  },
 
   /**
-   * Called once when component is attached. Generally for initial setup.
+   * Search for the part name and look for a mesh.
    */
-  init: function () { },
+  selectFromModel: function (model) {
+    var mesh;
+    var part;
 
-  /**
-   * Called when component is attached and when component data changes.
-   * Generally modifies the entity based on the data.
-   */
-  update: function (oldData) { },
+    part = model.getObjectByName(this.data.part);
+    if (!part) {
+      console.error('[gltf-part] `' + this.data.part + '` not found in model.');
+      return;
+    }
 
-  /**
-   * Called when a component is removed (e.g., via removeAttribute).
-   * Generally undoes all modifications to the entity.
-   */
-  remove: function () { },
+    mesh = part.getObjectByProperty('type', 'Mesh').clone(true);
 
-  /**
-   * Called on each scene tick.
-   */
-  // tick: function (t) { },
-
-  /**
-   * Called when entity pauses.
-   * Use to stop or remove any dynamic or background behavior such as events.
-   */
-  pause: function () { },
-
-  /**
-   * Called when entity resumes.
-   * Use to continue or add any dynamic or background behavior such as events.
-   */
-  play: function () { },
-
-  /**
-   * Event handlers that automatically get attached or detached based on scene state.
-   */
-  events: {
-    // click: function (evt) { }
+    if (this.data.buffer) {
+      mesh.geometry = mesh.geometry.toNonIndexed();
+      return mesh;
+    }
+    mesh.geometry = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
+    return mesh;
   }
 });

@@ -1,25 +1,30 @@
+const { assert } = require('chai');
+
 /* global assert, setup, suite, test */
 require('aframe');
 require('../index.js');
 var entityFactory = require('./helpers').entityFactory;
 
-suite('part-center component', function () {
+suite('gltf-part-reset-from-so component', function () {
   var component;
   var el;
-  console.log('this is happening *****');
   setup(function (done) {
     el = entityFactory();
     el.addEventListener('componentinitialized', function (evt) {
-      if (evt.detail.name !== 'part-center') { return; }
-      component = el.components['part-center'];
+      if (evt.detail.name !== 'gltf-part-reset-from-so') { return; }
+      component = el.components['gltf-part-reset-from-so'];
       done();
     });
-    el.setAttribute('part-center', {});
+    el.setAttribute('gltf-part-reset-from-so', {});
   });
 
   suite('foo property', function () {
-    test('is good', function () {
+    test('test can run', function () {
       assert.equal(1, 1);
+    });
+    test('check if only 1 component loaded on element to make sure some rational DOM logic applies', function () {
+      console.log(el.attributes.length);
+      assert.equal(el.attributes.length, 1);
     });
   });
 });
