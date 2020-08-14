@@ -91,7 +91,7 @@
       "THREE"
     ],
     "ignore": [
-      "examples/build.js",
+      "examples/draco_lib/**",
       "dist/**"
     ]
   }
