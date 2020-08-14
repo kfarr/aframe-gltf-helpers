@@ -45,10 +45,9 @@ AFRAME.registerComponent('gltf-part-reset-from-so', {
 
         modelPart.position.set(0, 0, 0);
       }
-
       el.setObject3D('mesh', modelPart);
       el.setAttribute('position', el.getAttribute('originalPosition'));
-      // el.emit('part-loaded', {format: 'gltf', part: self.modelPart});
+      el.emit('model-loaded', {format: 'gltf', part: this.modelPart});
     });
   },
 

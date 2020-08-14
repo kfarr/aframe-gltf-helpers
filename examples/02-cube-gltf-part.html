@@ -5,13 +5,43 @@
     <title>A-Frame glTF Helper Components - Basic</title>
     <meta name="description" content="Basic example for A-Frame glTF Helper Components"></meta>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="../../dist/aframe-gltf-helpers.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="../../dist/aframe-gltf-helpers.js"></script>
   </head>
   <body>
-    <a-scene environment="preset: forest">
-      <a-entity part-center=""></a-entity>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="cubes" src="./cubes.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-entity camera="active: true" position="0 1.2 7"></a-entity>
+
+      <a-entity
+        id="Cube1"
+        gltf-part-reset-from-so="src: #cubes; part: Cube1; resetPosition: true;"
+      ></a-entity>
+      <a-entity
+        id="Cube2"
+        gltf-part-reset-from-so="src: #cubes; part: Cube2; resetPosition: true;"
+      ></a-entity>
+      <a-entity
+        id="Cube3"
+        gltf-part-reset-from-so="src: #cubes; part: Cube3; resetPosition: true;"
+      ></a-entity>
     </a-scene>
+    
+    <script>
+      window.addEventListener("model-loaded", e => {
+        const sceneObj = document.querySelector("a-scene").object3D;
+        // Objects within gltf-model have correct positions
+        console.log(sceneObj.getObjectByProperty("name", "Cube1").position);
+        console.log(sceneObj.getObjectByProperty("name", "Cube2").position);
+        console.log(sceneObj.getObjectByProperty("name", "Cube3").position);
+        // Objects as gltf-part all have 0,0,0 position
+        console.log(this.document.getElementById("Cube1").object3D.position);
+        console.log(this.document.getElementById("Cube2").object3D.position);
+        console.log(this.document.getElementById("Cube3").object3D.position);
+      });
+    </script>
 
     <!-- GitHub Corner. -->
     <a href="https://github.com/kfarr/aframe-gltf-helpers" class="github-corner">
