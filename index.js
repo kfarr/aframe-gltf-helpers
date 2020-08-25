@@ -116,3 +116,24 @@ AFRAME.registerComponent('gltf-part-reset-from-so', {
     return mesh;
   }
 });
+
+AFRAME.registerComponent('part-center', {
+  schema: {
+    bottomAlign: { default: false }
+  },
+  init: function () {
+    this.el.addEventListener('model-loaded', (event) => {
+      var modelPart = this.el.getObject3D('mesh');
+      modelPart.position.set ( 0, 0, 0 );
+      // center all axes
+      modelPart.geometry.center();
+      if (this.data.bottomAlign) {
+        // align the bottom of the geometry on the y axis
+        var box = new THREE.Box3().setFromObject(modelPart);
+        var boundingBoxSize = box.max.sub(box.min);
+        var height = boundingBoxSize.y;
+        modelPart.position.y = height / 2;
+      }
+    });
+  }
+});
