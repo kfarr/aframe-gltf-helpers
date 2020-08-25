@@ -3,9 +3,7 @@
 [![Version](http://img.shields.io/npm/v/aframe-gltf-helpers.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
 [![License](http://img.shields.io/npm/l/aframe-gltf-helpers.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
 
-A-Frame glTF Helper Components
-
-For [A-Frame](https://aframe.io).
+[A-Frame](https://aframe.io) glTF Helper Components
 
 ### API
 

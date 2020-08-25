@@ -60,7 +60,7 @@
       </li>
       <li>
         <a href="examples/02-cube-gltf-part.html" style="background-image: url(https://cloud.githubusercontent.com/assets/674727/24217331/ba3d5b86-0efc-11e7-8a7c-ac74b3f35a65.png)"></a>
-        <h3>Cube Model using SO gltf-part loader, localizing cube locations</h3>
+        <h3>Cube Model using gltf-part-reset-from-so component, localizing cube locations</h3>
         <p>There should be 3 A-Frame entities, one for each cube. The 3 entities should have the positions:
           02-cube-gltf-part.html:40 i {x: -0.4392278790473938, y: 0, z: 0.019128933548927307}
           02-cube-gltf-part.html:41 i {x: -3.027634620666504, y: 3.6110496520996094, z: 0.4404485523700714}
@@ -69,7 +69,11 @@
       <li>
         <a href="examples/03-draco-gltf-model.html" style="background-image: url(https://cloud.githubusercontent.com/assets/674727/24217331/ba3d5b86-0efc-11e7-8a7c-ac74b3f35a65.png)"></a>
         <h3>glTF Model with draco compression loaded using built-in A-Frame glTF model loader</h3>
-        <p>There should be a small city block made up of 5 buildings, each of which has position 0 0 0 (see example script for details)</p>
+        <p>There should be a small city block made up of 5 buildings, each of which has position 0 0 0 (see example script for details). The translations are "applied" from Blender imperfectly offset from the center quite a bit on purpose so that we can use the centering tools to fix. We should be able to test for the world position of the first vertices of the mesh to confirm it is located where it should be.</p>
+      </li>
+      <li>
+        <a href="examples/04-draco-gltf-part.html" style="background-image: url(https://cloud.githubusercontent.com/assets/674727/24217331/ba3d5b86-0efc-11e7-8a7c-ac74b3f35a65.png)"></a>
+        <h3>glTF Model with draco compression loaded using gltf-part-reset-from-so component. Only 1 building should load. It should be centered.</h3>
       </li>
     </ul>
 
