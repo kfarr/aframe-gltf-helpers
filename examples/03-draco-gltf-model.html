@@ -5,7 +5,7 @@
     <title>A-Frame glTF Helper Components - Basic</title>
     <meta name="description" content="Basic example for A-Frame glTF Helper Components"></meta>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="../../dist/aframe-gltf-helpers.js"></script>
+    <script src="../dist/aframe-gltf-helpers.js"></script>
   </head>
   <body>
     <a-scene gltf-model="dracoDecoderPath: draco_lib/;">
@@ -24,10 +24,6 @@
         const sceneObj = document.querySelector("a-scene").object3D;
         // Objects within gltf-model have correct positions - 0 0 0
         console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_Corner_4fl").position);
-        console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_Double_5fl").position);
-        console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_4fl_2").position);
-        console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_5fl").position);
-        console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_4fl").position);
       });
     </script>
 
