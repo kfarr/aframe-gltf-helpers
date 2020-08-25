@@ -18,10 +18,19 @@
 
       <!-- <a-entity id="draco-buildings" gltf-model="#draco-buildings-model"></a-entity> -->
 
-      <a-entity id="building1" gltf-part-reset-from-so="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Corner_4fl;"></a-entity>
-      <a-entity id="building2" gltf-part-reset-from-so="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Double_5fl;"></a-entity>
-      <a-entity id="building3" gltf-part-reset-from-so="src: #draco-buildings-model; part: SM3D_Bld_Mixed_4fl_2;"></a-entity>
-      <a-entity id="building4" gltf-part-reset-from-so="src: #draco-buildings-model; part: SM3D_Bld_Mixed_5fl;"></a-entity>
+      <a-entity
+      id="building1"
+      gltf-part-reset-from-so="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Corner_4fl; resetPosition: true;"
+      part-center
+    ></a-entity>
+    <a-entity
+      id="building2"
+      gltf-part-reset-from-so="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Double_5fl;"
+    ></a-entity>
+    <a-entity
+      id="building3"
+      gltf-part-reset-from-so="src: #draco-buildings-model; part: SM3D_Bld_Mixed_4fl_2;"
+    ></a-entity>
 
     </a-scene>
     
