@@ -1,4 +1,4 @@
-## aframe-gltf-helpers
+# aframe-gltf-helpers
 
 [![Version](http://img.shields.io/npm/v/aframe-gltf-helpers.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
 [![License](http://img.shields.io/npm/l/aframe-gltf-helpers.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
@@ -11,9 +11,9 @@
 
 These are part of an experimental glTF workflow for handling assets related to [Streetmix3D](https://github.com/kfarr/streetmix3d).
 
-### API
+## API
 
-## gltf-part-plus
+### gltf-part-plus
 | Property | Description | Default Value |
 | -------- | -----------                                                                                                                        | ------------- |
 | buffer   | Whether to load the geometry as a BufferGeometry (versus Geometry). Set to `false` if we need access to vertices, faces, UVs, etc. | true          |
@@ -22,10 +22,16 @@ These are part of an experimental glTF workflow for handling assets related to [
 | resetPosition | Resets the object3d position? May be a duplicate of 'model-center' component, to be tested | false |
 | originalPosition | Used internally with resetPosition property, although this could probably be deleted, to be tested | '0 0 0' |
 
-## model-center
+### model-center
 | Property | Description | Default Value |
 | -------- | -----------                                                                                                                        | ------------- |
 | bottomAlign   | Whether to align the bottom of the centered mesh geometry with the ground or floor level (at `y=0`), useful for buildings, trees or other set dressings | false |
+
+## Examples
+* 01 - Cube Model using normal A-Frame glTF Loader ("control" case)
+* 02 - Cube Model using gltf-part-plus component, translating cube positions from gltf to A-Frame scene graph
+* 03 - glTF Model with draco compression loaded using built-in A-Frame glTF model loader (draco "control" case)
+* 04 - glTF Model with draco compression loaded using gltf-part-plus component
 
 ### Installation
 
