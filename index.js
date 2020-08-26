@@ -7,7 +7,7 @@ if (typeof AFRAME === 'undefined') {
 var LOADING_MODELS = {};
 var MODELS = {};
 
-AFRAME.registerComponent('gltf-part-reset-from-so', {
+AFRAME.registerComponent('gltf-part-plus', {
   schema: {
     buffer: { default: true },
     part: { type: 'string' },
@@ -117,7 +117,7 @@ AFRAME.registerComponent('gltf-part-reset-from-so', {
   }
 });
 
-AFRAME.registerComponent('part-center', {
+AFRAME.registerComponent('model-center', {
   schema: {
     bottomAlign: { default: false }
   },
