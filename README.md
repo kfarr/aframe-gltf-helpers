@@ -27,11 +27,10 @@ These are part of an experimental glTF workflow for handling assets related to [
 | bottomAlign   | Whether to align the bottom of the centered mesh geometry with the ground or floor level (at `y=0`), useful for buildings, trees or other set dressings | false |
 
 ## Examples
-Press `<ctrl> + <alt> + <i>` once scene is loaded to inspect individual gltf-part entities
-* [01 - Cube Model using normal A-Frame glTF Loader ("control" case) <img src="./examples/screenshots/01.png" width="500px" />](https://kfarr.github.io/aframe-gltf-helpers/examples/01-cube-gltf-model.html)
-* [02 - Cube Model using gltf-part-plus component, translating cube positions from gltf to A-Frame scene graph <img src="./examples/screenshots/02.png" width="500px" />](https://kfarr.github.io/aframe-gltf-helpers/examples/02-cube-gltf-part.html)
-* [03 - glTF Model with draco compression loaded using built-in A-Frame glTF model loader (draco "control" case) <img src="./examples/screenshots/03.png" width="500px" />](https://kfarr.github.io/aframe-gltf-helpers/examples/03-draco-gltf-model.html)
-* [04 - glTF Model with draco compression loaded using gltf-part-plus component <img src="./examples/screenshots/04.png" width="500px" />](https://kfarr.github.io/aframe-gltf-helpers/examples/04-draco-gltf-part.html)
+For each example, press `<ctrl> + <alt> + <i>` once scene is loaded to inspect individual gltf-part entities as a "manual test".
+
+[CLICK FOR ONLINE EXAMPLES
+ <img src="./examples/screenshots/examples.jpg" />](https://kfarr.github.io/aframe-gltf-helpers/)
 
 ### Installation
 
