@@ -16,44 +16,12 @@
 
       <a-entity camera="active: true" rotation="0 120 0"></a-entity>
 
-      <!-- <a-entity id="draco-buildings" gltf-model="#draco-buildings-model"></a-entity> -->
-
-      <a-entity
-      id="building1"
-      gltf-part-plus="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Corner_4fl; resetPosition: true;"
-      model-center
-    ></a-entity>
-    <a-entity
-      id="building2"
-      gltf-part-plus="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Double_5fl;"
-    ></a-entity>
-    <a-entity
-      id="building3"
-      gltf-part-plus="src: #draco-buildings-model; part: SM3D_Bld_Mixed_4fl_2;"
-    ></a-entity>
+      <a-entity id="building1" gltf-part-plus="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Corner_4fl;" model-center></a-entity>
+      <a-entity id="building2" gltf-part-plus="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Double_5fl;" model-center></a-entity>
+      <a-entity id="building3" gltf-part-plus="src: #draco-buildings-model; part: SM3D_Bld_Mixed_4fl_2;" model-center></a-entity>
+      <a-entity id="building4" gltf-part-plus="src: #draco-buildings-model; part: SM3D_Bld_Mixed_5fl;" model-center></a-entity>
 
     </a-scene>
-    
-    
-    <script>
-      window.addEventListener("model-loaded", e => {
-        console.log(AFRAME.scenes[0].object3D.children[1].children[0].geometry.attributes.position["count"])
-//         const sceneObj = document.querySelector("a-scene").object3D;
-//         // Objects within gltf-model have correct positions
-//                 console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_Corner_4fl"));
-// //      console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_Corner_4fl").position);
-//         var geometry = getObjectByName('SM3D_Bld_Mixed_Corner_4fl').geometry;
-
-//         // console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_Double_5fl").position);
-//         // console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_4fl_2").position);
-//         // console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_5fl").position);
-//         // console.log(sceneObj.getObjectByProperty("name", "SM3D_Bld_Mixed_4fl").position);
-//         // Objects as gltf-part all have 0,0,0 position
-//         console.log(this.document.getElementById("SM3D_Bld_Mixed_Corner_4fl").object3D.position);
-//         console.log(this.document.getElementById("SM3D_Bld_Mixed_Corner_4fl").object3D.position);
-//         console.log(this.document.getElementById("SM3D_Bld_Mixed_Corner_4fl").object3D.position);
-      });
-    </script>
 
     <!-- GitHub Corner. -->
     <a href="https://github.com/kfarr/aframe-gltf-helpers" class="github-corner">
