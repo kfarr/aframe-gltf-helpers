@@ -34,11 +34,13 @@
         padding: 5px 0 30px;
       }
       ul a {
-        background-size: cover;
+        background-size: contain;
         display: block;
         padding: 0;
         height: 320px;
         width: 320px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
       }
       ul h3,
       ul p {
@@ -48,36 +50,42 @@
   </head>
   <body>
     <h1>A-Frame glTF Helper Components</h1>
-
+<h2>Click on images below to see each test example.</h2>
+<h3>Then press &lt; ctrl + alt + i &gt; to load the A-Frame inspector to validate test manually.</h3>
     <ul>
       <li>
-        <a href="examples/01-cube-gltf-model.html" style="background-image: url(https://cloud.githubusercontent.com/assets/674727/24217331/ba3d5b86-0efc-11e7-8a7c-ac74b3f35a65.png)"></a>
-        <h3>Cube Model using normal A-Frame glTF Loader</h3>
-        <p>The entity #cube-gltf-model should have position 0, 0, 0. The object3d scene object named Cube1, Cube2 and Cube3 shall have positions of:
+        <a href="examples/01-cube-gltf-model.html" style="background-image: url(./examples/screenshots/01.png);">
+        <h4>01 - Cube Model using normal A-Frame glTF Loader ("control" case)</h4></a>
+        <p>The entity #cube-gltf-model should have position 0, 0, 0. The object3d scene objects named Cube1, Cube2 and Cube3 shall have positions of:
           x: -0.4392278790473938 y: 0 z: 0.019128933548927307;
           x: -3.027634620666504 y: 3.6110496520996094 z: 0.4404485523700714;
           x: 2.6165430545806885 y: 2.0795676708221436 z: 0.3142514228820801</p>
       </li>
       <li>
-        <a href="examples/02-cube-gltf-part.html" style="background-image: url(https://cloud.githubusercontent.com/assets/674727/24217331/ba3d5b86-0efc-11e7-8a7c-ac74b3f35a65.png)"></a>
-        <h3>Cube Model using gltf-part-plus component, localizing cube locations</h3>
+        <a href="examples/02-cube-gltf-part.html" style="background-image: url(./examples/screenshots/02.png);">
+        <h4>02 - Cube Model using gltf-part-plus component, translating cube positions from gltf to A-Frame scene graph </h4></a>
         <p>There should be 3 A-Frame entities, one for each cube. The 3 entities should have the positions:
           02-cube-gltf-part.html:40 i {x: -0.4392278790473938, y: 0, z: 0.019128933548927307}
           02-cube-gltf-part.html:41 i {x: -3.027634620666504, y: 3.6110496520996094, z: 0.4404485523700714}
           02-cube-gltf-part.html:42 i {x: 2.6165430545806885, y: 2.0795676708221436, z: 0.3142514228820801}</p>
       </li>
       <li>
-        <a href="examples/03-draco-gltf-model.html" style="background-image: url(https://cloud.githubusercontent.com/assets/674727/24217331/ba3d5b86-0efc-11e7-8a7c-ac74b3f35a65.png)"></a>
-        <h3>glTF Model with draco compression loaded using built-in A-Frame glTF model loader</h3>
-        <p>There should be a small city block made up of 5 buildings, each of which has position 0 0 0 (see example script for details). The translations are "applied" from Blender imperfectly offset from the center quite a bit on purpose so that we can use the centering tools to fix. We should be able to test for the world position of the first vertices of the mesh to confirm it is located where it should be.</p>
+        <a href="examples/03-draco-gltf-model.html" style="background-image: url(./examples/screenshots/03.png);">
+        <h4>03 - glTF Model with draco compression loaded using built-in A-Frame glTF model loader (draco "control" case)</h4></a>
+        <p>There should be a small city block made up of 5 buildings, each of which has position 0 0 0 (see example script for details).</p>
       </li>
       <li>
-        <a href="examples/04-draco-gltf-part.html" style="background-image: url(https://cloud.githubusercontent.com/assets/674727/24217331/ba3d5b86-0efc-11e7-8a7c-ac74b3f35a65.png)"></a>
-        <h3>glTF Model with draco compression loaded using gltf-part-plus component. 4 buildings should load, each as separate objects.</h3>
+        <a href="examples/04-draco-gltf-part.html" style="background-image: url(./examples/screenshots/04.png);">
+        <h4>04 - glTF Model with draco compression loaded using gltf-part-plus component</h3></a>
       </li>
       <li>
-        <a href="examples/05-draco-gltf-part-reset-geo.html" style="background-image: url(https://cloud.githubusercontent.com/assets/674727/24217331/ba3d5b86-0efc-11e7-8a7c-ac74b3f35a65.png)"></a>
-        <h3>glTF Model with draco compression loaded using gltf-part-plus component. Only 1 building should load. It should be centered.</h3>
+        <a href="examples/05-draco-gltf-part-center.html" style="background-image: url(./examples/screenshots/05.png);">
+        <h4>05 - glTF Model with draco compression using both gltf-part-plus and model-center components. </h4></a>
+        <p>All buildings should be centered around 0 0 0.</p>
+      </li>
+      <li>
+        <a href="examples/06-draco-gltf-part-center-position.html" style="background-image: url(./examples/screenshots/06.png);">
+        <h4>06 - glTF Model with draco compression using both gltf-part-plus and model-center with bottomAlign = true and custom building positions</h4></a>
       </li>
     </ul>
 
