@@ -34,6 +34,10 @@ For each example, press `<ctrl> + <alt> + <i>` once scene is loaded to inspect i
 ### About the Example Models
 * The [cubes.gltf model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/cubes.gltf) has 3 cubes translated to arbitrary locations within a few units of 0 0 0 with no rotation. MIT License.
 * The [buildings.glb model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/buildings.glb) has 5 buildings with "applied" custom translations applied in Blender, then exported as a glb with draco compression. The buildings are paid models from the [Synty Polygon City Pack](https://syntystore.com/products/polygon-city-pack) for use in Streetmix3D and are for testing only. Please purchase a license for $19.99 from them if you use these models in your own projects.
+* [Meshopt gltf pack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) output of the same buildings model as 3 files:
+`gltfpack -kn -i ./scenesmall3.gltf -o buildings-gltfpackkn.glb`
+`gltfpack -c -kn -i ./scenesmall3.gltf -o buildings-gltfpackckn.glb`
+`gltfpack -cc -kn -i ./scenesmall3.gltf -o buildings-gltfpack-cc-kn.glb`
 
 ### Installation
 
