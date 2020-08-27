@@ -31,7 +31,7 @@ AFRAME.registerComponent('gltf-part-plus', {
       if (!modelPart) {
         return;
       }
-      console.log(data.resetPosition);
+//      console.log(data.resetPosition);
       if (data.resetPosition) {
         el.setAttribute(
           'position',
