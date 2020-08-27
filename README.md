@@ -1,7 +1,7 @@
 # aframe-gltf-helpers
 
 [![Version](http://img.shields.io/npm/v/aframe-gltf-helpers.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
-[![License](http://img.shields.io/npm/l/aframe-gltf-helpers.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
+[![License](http://img.shields.io/npm/l/aframe-gltf-helpers.svg?style=flat-square?cachebust=true)](https://npmjs.org/package/aframe-gltf-helpers)
 
 [A-Frame](https://aframe.io) glTF Helper Components
 
