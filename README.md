@@ -29,8 +29,11 @@ These are part of an experimental glTF workflow for handling assets related to [
 ## Examples
 For each example, press `<ctrl> + <alt> + <i>` once scene is loaded to inspect individual gltf-part entities as a "manual test".
 
-[CLICK FOR ONLINE EXAMPLES
- <img src="./examples/screenshots/examples.jpg" />](https://kfarr.github.io/aframe-gltf-helpers/)
+### [CLICK FOR ONLINE EXAMPLES <img src="./examples/screenshots/examples.jpg" />](https://kfarr.github.io/aframe-gltf-helpers/)
+
+### About the Example Models
+* The [cubes.gltf model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/cubes.gltf) has 3 cubes translated to arbitrary locations within a few units of 0 0 0 with no rotation. MIT License.
+* The [buildings.glb model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/buildings.glb) has 5 buildings with "applied" custom translations applied in Blender, then exported as a glb with draco compression. The buildings are paid models from the [Synty Polygon City Pack](https://syntystore.com/products/polygon-city-pack) for use in Streetmix3D and are for testing only. Please purchase a license for $19.99 from them if you use these models in your own projects.
 
 ### Installation
 
