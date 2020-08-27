@@ -12,8 +12,7 @@ AFRAME.registerComponent('gltf-part-plus', {
     buffer: { default: true },
     part: { type: 'string' },
     src: { type: 'asset' },
-    resetPosition: { default: false },
-    originalPosition: { default: '0 0 0' }
+    resetPosition: { default: false }
   },
 
   init: function () {
@@ -35,7 +34,7 @@ AFRAME.registerComponent('gltf-part-plus', {
       console.log(data.resetPosition);
       if (data.resetPosition) {
         el.setAttribute(
-          'originalPosition',
+          'position',
           modelPart.position.x +
             ' ' +
             modelPart.position.y +
@@ -46,7 +45,6 @@ AFRAME.registerComponent('gltf-part-plus', {
         modelPart.position.set(0, 0, 0);
       }
       el.setObject3D('mesh', modelPart);
-      el.setAttribute('position', el.getAttribute('originalPosition'));
       el.emit('model-loaded', {format: 'gltf', part: this.modelPart});
     });
   },

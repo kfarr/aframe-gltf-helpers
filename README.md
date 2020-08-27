@@ -5,9 +5,9 @@
 
 [A-Frame](https://aframe.io) glTF Helper Components
 
-'gltf-part-plus' adds a few features to the original [gltf-part component](https://github.com/supermedium/superframe/tree/master/components/gltf-part) made by [@ngokevin](github.com/ngokevin), namely: draco compression and ability to extract gltf translation to the A-Frame scene graph.
+`gltf-part-plus` component adds a few features to the original [gltf-part component](https://github.com/supermedium/superframe/tree/master/components/gltf-part) made by [@ngokevin](github.com/ngokevin), namely: draco compression and ability to extract gltf translation to the A-Frame scene graph. Note: to enable draco decompression, [refer to A-Frame instructions here](https://aframe.io/docs/1.0.0/components/gltf-model.html#geometry-compression-with-draco), also shown in examples 3 and 4 below.
 
-'model-center' centers the geometry of a mesh loaded from gltf-part-plus with an option to bottom align at ground level, useful for buildings, trees, etc.
+`model-center` component centers the geometry of a mesh loaded from gltf-part-plus with an option to bottom align at ground level, useful for buildings, trees, etc.
 
 These are part of an experimental glTF workflow for handling assets related to [Streetmix3D](https://github.com/kfarr/streetmix3d).
 
@@ -19,8 +19,7 @@ These are part of an experimental glTF workflow for handling assets related to [
 | buffer   | Whether to load the geometry as a BufferGeometry (versus Geometry). Set to `false` if we need access to vertices, faces, UVs, etc. | true          |
 | part     | Name of the part to look for specified in the glTF file as `name="<NAME>"`.                                                       | ''            |
 | src      | Path to the glTF file (or selector to `<a-asset-item>`).                                                                           | ''            |
-| resetPosition | Resets the object3d position? May be a duplicate of 'model-center' component, to be tested | false |
-| originalPosition | Used internally with resetPosition property, although this could probably be deleted, to be tested | '0 0 0' |
+| resetPosition | copies the gltf translation to the a-frame element and resets the gltf translation | false |
 
 ### model-center
 | Property | Description | Default Value |
