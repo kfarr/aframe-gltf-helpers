@@ -9,7 +9,7 @@
 
 `model-center` component centers the geometry of a mesh loaded from gltf-part-plus with an option to bottom align at ground level, useful for buildings, trees, etc.
 
-These are part of an experimental glTF workflow for handling assets related to [Streetmix3D](https://github.com/kfarr/streetmix3d).
+These are part of an experimental glTF workflow for handling assets related to [Streetmix3D](https://github.com/kfarr/streetmix3d). See below for more info on the full workflow.
 
 ## API
 
@@ -38,6 +38,19 @@ For each example, press `<ctrl> + <alt> + <i>` once scene is loaded to inspect i
 `gltfpack -kn -i ./scenesmall3.gltf -o buildings-gltfpackkn.glb`
 `gltfpack -c -kn -i ./scenesmall3.gltf -o buildings-gltfpackckn.glb`
 `gltfpack -cc -kn -i ./scenesmall3.gltf -o buildings-gltfpack-cc-kn.glb`
+
+### About the Workflow
+These are part of an experimental glTF workflow for handling assets related to [Streetmix3D](https://github.com/kfarr/streetmix3d). 
+
+The current workflow is roughly:
+- "Main" Blender file for a collection of models that share the same material such as "urban buildings", "suburban buildings", "plants and trees", "vehicles", etc. (Only 1 material keep things simple at first, future support for more.)
+- Export to a gltf with separate bin and image files (some separate gltf files may share the same image, I don't see a need to combine to one glb). Enable Draco mesh compression.
+- Use this repo's `gltf-part-plus` component to load part from draco compressed file.
+
+Alternate workflow (not working):
+- Use the Main Blender file to export a gltf *without* draco compression.
+- Use [meshopt gltfpack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) with compression such as `gltfpack -cc -kn -i ./scenesmall3.gltf -o buildings-gltfpack-cc-kn.glb` to optimize and compress
+- Or use [meshopt gltfpack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) *without* such as `gltfpack -kn -i ./scenesmall3.gltf -o buildings-gltfpack-kn.glb` and serve with a web host that automatically gzip compresses ([not github pages](https://github.community/t/support-for-gzip-on-glb-3d-model-files/11004) at the moment)
 
 ### Installation
 
