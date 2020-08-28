@@ -39,35 +39,6 @@ For each example, press `<ctrl> + <alt> + <i>` once scene is loaded to inspect i
 
 ### [CLICK FOR ONLINE EXAMPLES <img src="./examples/screenshots/examples.jpg" />](https://kfarr.github.io/aframe-gltf-helpers/)
 
-### About the Example Models
-* The [cubes.gltf model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/cubes.gltf) has 3 cubes translated to arbitrary locations within a few units of 0 0 0 with no rotation. MIT License.
-* The [buildings.glb model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/buildings.glb) has 5 buildings with "applied" custom translations applied in Blender, then exported as a glb with draco compression. The buildings are paid models from the [Synty Polygon City Pack](https://syntystore.com/products/polygon-city-pack) for use in Streetmix3D and are for testing only. Please purchase a license for $19.99 from them if you use these models in your own projects.
-* [Meshopt gltf pack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) output of the same buildings model as 3 files:
-`gltfpack -kn -i ./scenesmall3.gltf -o buildings-gltfpackkn.glb`
-`gltfpack -c -kn -i ./scenesmall3.gltf -o buildings-gltfpackckn.glb`
-`gltfpack -cc -kn -i ./scenesmall3.gltf -o buildings-gltfpack-cc-kn.glb`
-* [New Flyer XD40 Bus Model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/XD40.glb) Credits: [New Flyer XD40 Bus](https://sketchfab.com/3d-models/new-flyer-xd40-d61e475543324d21aa24b2b208fbf3c5) |
-
-### About the Workflow
-These are part of an experimental glTF workflow for handling assets related to [Streetmix3D](https://github.com/kfarr/streetmix3d). 
-
-The current workflow is roughly:
-- "Main" Blender file for a collection of models that share the same material such as "urban buildings", "suburban buildings", "plants and trees", "vehicles", etc. (Only 1 material keep things simple at first, future support for more.)
-- Export to a gltf with separate bin and image files (some separate gltf files may share the same image, I don't see a need to combine to one glb). Enable Draco mesh compression.
-- Use this repo's `gltf-part-plus` component to load part from draco compressed file.
-
-Alternate workflow (not working):
-- Use the Main Blender file to export a gltf *without* draco compression.
-- Use [meshopt gltfpack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) with compression such as `gltfpack -cc -kn -i ./scenesmall3.gltf -o buildings-gltfpack-cc-kn.glb` to optimize and compress
-- Or use [meshopt gltfpack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) *without* such as `gltfpack -kn -i ./scenesmall3.gltf -o buildings-gltfpack-kn.glb` and serve with a web host that automatically gzip compresses ([not github pages](https://github.community/t/support-for-gzip-on-glb-3d-model-files/11004) at the moment)
-
-### Wishlist
-
-I'd like to add:
-* ability to set anisotropic filtering for a gltf model and all its descendant materials (and also a "part") -- see naive [work in progress here](https://github.com/kfarr/streetmix3d/blob/master/src/components/anisotropy.js)
-* ability to support meshopt gltfpack with -c option, similar in spirit to draco support
-* automated testing for each example
-* instancing
 
 ### Installation
 
@@ -103,3 +74,32 @@ Then require and use.
 require('aframe');
 require('aframe-gltf-helpers');
 ```
+
+### About the Example Models
+* The [cubes.gltf model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/cubes.gltf) has 3 cubes translated to arbitrary locations within a few units of 0 0 0 with no rotation. MIT License.
+* The [buildings.glb model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/buildings.glb) has 5 buildings with "applied" custom translations applied in Blender, then exported as a glb with draco compression. The buildings are paid models from the [Synty Polygon City Pack](https://syntystore.com/products/polygon-city-pack) for use in Streetmix3D and are for testing only. Please purchase a license for $19.99 from them if you use these models in your own projects.
+* [Meshopt gltf pack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) output of the same buildings model as 3 files:
+`gltfpack -kn -i ./scenesmall3.gltf -o buildings-gltfpackkn.glb`
+`gltfpack -c -kn -i ./scenesmall3.gltf -o buildings-gltfpackckn.glb`
+`gltfpack -cc -kn -i ./scenesmall3.gltf -o buildings-gltfpack-cc-kn.glb`
+* [New Flyer XD40 Bus Model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/XD40.glb) Credits: [New Flyer XD40 Bus](https://sketchfab.com/3d-models/new-flyer-xd40-d61e475543324d21aa24b2b208fbf3c5) |
+
+### About the Workflow
+These are part of an experimental glTF workflow for handling assets related to [Streetmix3D](https://github.com/kfarr/streetmix3d). 
+
+The current workflow is roughly:
+- "Main" Blender file for a collection of models that share the same material such as "urban buildings", "suburban buildings", "plants and trees", "vehicles", etc. (Only 1 material keep things simple at first, future support for more.)
+- Export to a gltf with separate bin and image files (some separate gltf files may share the same image, I don't see a need to combine to one glb). Enable Draco mesh compression.
+- Use this repo's `gltf-part-plus` component to load part from draco compressed file.
+
+Alternate workflow (not working):
+- Use the Main Blender file to export a gltf *without* draco compression.
+- Use [meshopt gltfpack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) with compression such as `gltfpack -cc -kn -i ./scenesmall3.gltf -o buildings-gltfpack-cc-kn.glb` to optimize and compress
+- Or use [meshopt gltfpack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) *without* such as `gltfpack -kn -i ./scenesmall3.gltf -o buildings-gltfpack-kn.glb` and serve with a web host that automatically gzip compresses ([not github pages](https://github.community/t/support-for-gzip-on-glb-3d-model-files/11004) at the moment)
+
+### Wishlist
+
+I'd like to add:
+* ability to support meshopt gltfpack with -c option, similar in spirit to draco support
+* automated testing for each example
+* instancing
