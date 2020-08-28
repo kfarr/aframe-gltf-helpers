@@ -22,9 +22,17 @@ These are part of an experimental glTF workflow for handling assets related to [
 | resetPosition | copies the gltf translation to the a-frame element and resets the gltf translation | false |
 
 ### model-center
+[Center](https://threejs.org/docs/#api/en/core/Geometry.center) the child geometry of the current entity's object3d.
 | Property | Description | Default Value |
 | -------- | -----------                                                                                                                        | ------------- |
 | bottomAlign   | Whether to align the bottom of the centered mesh geometry with the ground or floor level (at `y=0`), useful for buildings, trees or other set dressings | false |
+
+### anisotropy
+Traverse through materials in a glTF model to set anisotropic filtering value. This component only accepts one optional number value.
+| Attribute Type | Description | Default Value |
+| -------- | -----------                                                                                                                        | ------------- |
+| `number`   | Desired [anisotropy value](https://threejs.org/docs/#api/en/textures/Texture.anisotropy) for all texture maps found while traversing the model. Setting to 0 (default) will set the value to the maximum value supported by hardware. | 0 |
+
 
 ## Examples
 For each example, press `<ctrl> + <alt> + <i>` once scene is loaded to inspect individual gltf-part entities as a "manual test".
@@ -38,6 +46,7 @@ For each example, press `<ctrl> + <alt> + <i>` once scene is loaded to inspect i
 `gltfpack -kn -i ./scenesmall3.gltf -o buildings-gltfpackkn.glb`
 `gltfpack -c -kn -i ./scenesmall3.gltf -o buildings-gltfpackckn.glb`
 `gltfpack -cc -kn -i ./scenesmall3.gltf -o buildings-gltfpack-cc-kn.glb`
+* [New Flyer XD40 Bus Model](https://github.com/kfarr/aframe-gltf-helpers/blob/master/examples/XD40.glb) Credits: [New Flyer XD40 Bus](https://sketchfab.com/3d-models/new-flyer-xd40-d61e475543324d21aa24b2b208fbf3c5) |
 
 ### About the Workflow
 These are part of an experimental glTF workflow for handling assets related to [Streetmix3D](https://github.com/kfarr/streetmix3d). 
@@ -75,7 +84,7 @@ Install and use by directly including the [browser files](dist):
 
 <body>
   <a-scene>
-    <a-entity gltf-part-plus="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Corner_4fl;" model-center></a-entity>
+    <a-entity gltf-part-plus="src: #draco-buildings-model; part: SM3D_Bld_Mixed_Corner_4fl;" model-center anisotropy></a-entity>
   </a-scene>
 </body>
 ```
