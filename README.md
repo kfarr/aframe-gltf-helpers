@@ -52,6 +52,14 @@ Alternate workflow (not working):
 - Use [meshopt gltfpack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) with compression such as `gltfpack -cc -kn -i ./scenesmall3.gltf -o buildings-gltfpack-cc-kn.glb` to optimize and compress
 - Or use [meshopt gltfpack](https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md) *without* such as `gltfpack -kn -i ./scenesmall3.gltf -o buildings-gltfpack-kn.glb` and serve with a web host that automatically gzip compresses ([not github pages](https://github.community/t/support-for-gzip-on-glb-3d-model-files/11004) at the moment)
 
+### Wishlist
+
+I'd like to add:
+* ability to set anisotropic filtering for a gltf model and all its descendant materials (and also a "part") -- see naive [work in progress here](https://github.com/kfarr/streetmix3d/blob/master/src/components/anisotropy.js)
+* ability to support meshopt gltfpack with -c option, similar in spirit to draco support
+* automated testing for each example
+* instancing
+
 ### Installation
 
 #### Browser
