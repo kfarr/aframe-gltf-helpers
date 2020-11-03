@@ -1,6 +1,6 @@
 {
   "name": "aframe-gltf-helpers",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Some helpful glTF components for A-Frame",
   "main": "index.js",
   "unpkg": "dist/aframe-gltf-helpers.min.js",
