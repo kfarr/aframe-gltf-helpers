@@ -91,26 +91,16 @@ AFRAME.registerComponent('gltf-part-plus', {
   },
 
   /**
-   * Search for the part name and look for a mesh.
+   * Search for the part name and return it.
    */
   selectFromModel: function (model) {
-    var mesh;
     var part;
-
     part = model.getObjectByName(this.data.part);
     if (!part) {
       console.error('[gltf-part] `' + this.data.part + '` not found in model.');
       return;
     }
-
-    mesh = part.getObjectByProperty('type', 'Mesh').clone(true);
-
-    if (this.data.buffer) {
-      mesh.geometry = mesh.geometry.toNonIndexed();
-      return mesh;
-    }
-    mesh.geometry = new THREE.Geometry().fromBufferGeometry(mesh.geometry);
-    return mesh;
+    return part;
   }
 });
 
