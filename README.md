@@ -19,7 +19,7 @@ These are part of an experimental glTF workflow for handling assets related to [
 | buffer   | Whether to load the geometry as a BufferGeometry (versus Geometry). Set to `false` if we need access to vertices, faces, UVs, etc. | true          |
 | part     | Name of the part to look for specified in the glTF file as `name="<NAME>"`.                                                       | ''            |
 | src      | Path to the glTF file (or selector to `<a-asset-item>`).                                                                           | ''            |
-| resetPosition | Use with caution, this is not a well-tested property. For the first gltf node encountered in the matching `part`, copy its translation to the a-frame entity, and then set gltf translation to `0 0 0`. This keeps the same world position for the placed gltf `part`'s first node, while giving the A-Frame entity the value of that part from the gltf scene. However, this only works for a simple gltf with only 1 child node for each `part` in the scene. | false |
+| resetPosition | For the first gltf node encountered in the matching `part`, copy its translation to the a-frame entity, and then set gltf translation to `0 0 0`. This keeps the same world position for the placed gltf `part`'s first node, while giving the A-Frame entity the value of that part from the gltf scene. However, this only works for a simple gltf with only 1 child node for each `part` in the scene. (Use with caution, this is not a well-tested property and [might not work as expected](https://github.com/kfarr/aframe-gltf-helpers/issues/1) on your model.) | false |
 
 ### model-center
 [Center](https://threejs.org/docs/#api/en/core/Geometry.center) the child geometry of the current entity's object3d.
