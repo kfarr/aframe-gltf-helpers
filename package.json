@@ -1,6 +1,6 @@
 {
   "name": "aframe-gltf-helpers",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Some helpful glTF components for A-Frame",
   "main": "index.js",
   "unpkg": "dist/aframe-gltf-helpers.min.js",
@@ -33,7 +33,7 @@
   "author": "kieran.farr@gmail.com",
   "license": "MIT",
   "homepage": "https://github.com/kfarr/aframe-gltf-helpers#readme",
-  "dependencies": {
+  "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
