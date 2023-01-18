@@ -1,7 +1,7 @@
 # aframe-gltf-helpers
 
 ![image](https://user-images.githubusercontent.com/470477/213101219-02bb88e8-871b-4009-b685-a8f71212907c.jpg)
-# NOT SUPER GREAT: this repo was used for learning but you probably don't want to depend on it
+> :warning: **NOT SUPER GREAT**: this repo was used for learning so you probably don't want to depend on it
 
 [![Version](http://img.shields.io/npm/v/aframe-gltf-helpers.svg?style=flat-square)](https://npmjs.org/package/aframe-gltf-helpers)
 [![License](http://img.shields.io/npm/l/aframe-gltf-helpers.svg?style=flat-square?cachebust=true)](https://npmjs.org/package/aframe-gltf-helpers)
